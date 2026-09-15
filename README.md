@@ -27,7 +27,7 @@ A robust and secure web-based inventory management application built using **PHP
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/YOUR_GITHUB_USERNAME/inventory_system.git](https://github.com/YOUR_GITHUB_USERNAME/inventory_system.git)
+    git clone [https://github.com/YOUR_GITHUB_USERNAME/inventory_system.git](https://github.com/mahendra07-U/inventory_system.git)
     ```
 2.  **Environment Setup:** Move the project folder into your local server's web directory (e.g., `htdocs` for XAMPP).
 3.  **Database Configuration:**
