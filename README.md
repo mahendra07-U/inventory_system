@@ -1,69 +1,37 @@
-# CodeIgniter 4 Application Starter
+#  Stationery Inventory Management System
 
-## What is CodeIgniter?
+A robust and secure web-based inventory management application built using **PHP CodeIgniter 4 (MVC Framework)** and **MySQL**. Designed to streamline the process of tracking, borrowing, and managing stationery items for students and administrators.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+##  Key Features
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+###  Admin Module
+*   **Secure Hidden Portal:** Admin login access is restricted via a dedicated secret route.
+*   **Dashboard Analytics:** Real-time summary cards displaying Total Students, Total Stock Types, and Active Issues.
+*   **Allocation History:** Comprehensive table view of all items issued, including student details, issue dates, and current return status.
+*   **Full CRUD Inventory Control:** Admins can effortlessly Add, Edit, and Delete items, including uploading product images.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+###  Student Module
+*   **Secure Registration & Login:** Password hashing and duplicate email validation to prevent unauthorized or redundant accounts.
+*   **Interactive Item Catalog:** View available stationery stock in a clean, image-supported grid layout.
+*   **Smart Search:** Quickly find specific items using the integrated search and filter bar.
+*   **Real-time Allocation:** Borrow items with a single click, instantly updating the available database stock.
+*   **Return Management:** Easily return borrowed items, automatically restoring inventory counts.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+##  Technologies Used
+*   **Backend:** PHP, CodeIgniter 4 Framework
+*   **Database:** MySQL
+*   **Frontend:** HTML5, CSS3 (Custom Styling)
+*   **Architecture:** MVC (Model-View-Controller)
 
-## Installation & updates
+##  How to Install & Run
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
-
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
-
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.2 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/YOUR_GITHUB_USERNAME/inventory_system.git](https://github.com/YOUR_GITHUB_USERNAME/inventory_system.git)
+    ```
+2.  **Environment Setup:** Move the project folder into your local server's web directory (e.g., `htdocs` for XAMPP).
+3.  **Database Configuration:**
+    *   Create a new MySQL database named `inventory_system`.
+    *   Import the provided SQL backup file located in the `/database/` folder.
+    *   Rename the `env` file to `.env` and configure your database connection settings (`database.default.hostname`, `database.default.database`, `database.default.username`, `database.default.password`).
+4.  **Launch:** Open your browser and navigate to `http://localhost/inventory_system/public/` (or your configured virtual host).
