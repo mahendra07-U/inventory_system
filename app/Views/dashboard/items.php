@@ -8,12 +8,14 @@
                 
                 <input type="text" name="search" placeholder="Item ka naam ya category likhein..." value="<?= esc($search_query ?? '') ?>" class="form-control" style="flex: 1; border-radius: 20px; padding: 10px 15px; margin-bottom: 0;">
                 
-                <button type="submit" class="btn-success" style="border-radius: 20px; padding: 10px 20px; width: auto; margin: 0; background-color: #2c3e50;">🔍 Search</button>
+                <button type="submit" class="btn-success" style="border-radius: 20px; padding: 10px 20px; width: auto; margin: 0; background-color: #2c3e50;"> Search</button>
                 <?php if(!empty($search_query)): ?>
-                    <a href="<?= base_url('items') ?>" style="padding: 10px; text-decoration: none; color: #e74c3c; font-weight: bold;">✖ Clear</a>
+                    <a href="<?= base_url('items') ?>" style="padding: 10px; text-decoration: none; color: #e74c3c; font-weight: bold;"> Clear</a>
                 <?php endif; ?>
-                
-            </div>
+                <a href="<?= base_url('change-password') ?>" style="background-color: #e67e22; color: white; text-decoration: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; display:inline-block; margin-left: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                    Change Password
+                </a>
+            </div> 
         </form>
     </div>
     <p style="text-align: center; color: #555;">Here Is Your All Available Items.</p>

@@ -13,11 +13,13 @@
             <?php $session = \Config\Services::session(); ?>
             <?php if($session->get('isAdminLoggedIn')): ?>
                 <a href="<?= base_url('admin/dashboard') ?>">Admin Dashboard</a>
-                <a href="<?= base_url('inventory/add-item') ?>" style="color: #f1c40f;">+ Add Item</a>
+                <a href="<?= base_url('inventory/add-item') ?>" style="color: #f1c40f;"> Add Item</a>
+                <a href="<?= base_url('items') ?>">View Items</a>
                 <a href="<?= base_url('admin/logout') ?>" style="background-color: #e74c3c;">Logout</a>
             <?php elseif($session->get('isLoggedIn')): ?>
                 <a href="<?= base_url('dashboard') ?>">My Dashboard</a>
                 <a href="<?= base_url('items') ?>">View Items</a>
+                <a href="<?= base_url('my-history') ?>">View History</a>
                 <a href="<?= base_url('logout') ?>" style="background-color: #e74c3c;">Logout</a>
             <?php else: ?>
                 <a href="<?= base_url('register') ?>">Student Register</a>

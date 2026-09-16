@@ -17,7 +17,7 @@ class AdminController extends BaseController
             return "Kamaal ho gaya! Pehla Admin account ban gaya. <br> <b>Email:</b> admin@inventory.com <br> <b>Password:</b> admin123";
             
         } else {
-            return "Admin account pehle se maujood hai!";
+            return "Admin account is already created!";
         }
     }
     public function login()
@@ -52,7 +52,7 @@ class AdminController extends BaseController
     {
         $session = \Config\Services::session();
         if (!$session->get('isAdminLoggedIn')) {
-            $session->setFlashdata('error', 'First Admin Do Login !');
+            $session->setFlashdata('error', 'First Admin Done Login !');
             return redirect()->to('admin/login');
         }
         $db = \Config\Database::connect();

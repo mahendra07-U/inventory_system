@@ -23,4 +23,7 @@ $routes->get('admin/logout', 'AdminController::logout');
 $routes->get('inventory/edit-item/(:num)', 'InventoryController::editItem/$1');
 $routes->post('inventory/update-item/(:num)', 'InventoryController::updateItem/$1');
 $routes->get('inventory/delete-item/(:num)', 'InventoryController::deleteItem/$1');
+$routes->get('my-history', 'StudentController::myHistory');
+$routes->get('change-password', 'StudentController::changePasswordForm');
+$routes->post('update-password', 'StudentController::updatePassword');
 ?>

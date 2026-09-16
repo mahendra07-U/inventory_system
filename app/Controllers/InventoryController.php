@@ -41,17 +41,15 @@ class InventoryController extends BaseController
             'available_quantity' => $this->request->getPost('total_quantity'),
             'description'        => $this->request->getPost('description')
         ];
-        
-        $itemModel->update($id, $data); // Update query chalayi
-        
-        return redirect()->to('items')->with('success', 'Item successfully update ho gaya!');
+        $itemModel->update($id, $data);        
+        return redirect()->to('items')->with('success', 'Item successfully updated !');
     }
     public function deleteItem($id)
     {
         $itemModel = new InventoryItemModel();
-        $itemModel->delete($id); // Delete query chalayi
+        $itemModel->delete($id); 
         
-        return redirect()->to('items')->with('success', 'Item successfully delete ho gaya!');
+        return redirect()->to('items')->with('success', 'Item successfully deleted!');
     }
 }
 ?>

@@ -3,29 +3,21 @@
 
 <div class="container" style="max-width: 1000px;">
     <h2 style="color: #2c3e50;">Admin Dashboard</h2>
-    <!-- NAYA CODE: Analytics Summary Cards -->
     <div style="display: flex; gap: 20px; margin-top: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-        
-        <!-- Blue Card: Total Students -->
         <div style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 25px 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
             <h3 style="margin: 0; font-size: 38px;"><?= esc($total_students) ?></h3>
             <p style="margin: 5px 0 0 0; font-size: 16px; font-weight: bold;">Total Students</p>
         </div>
-        
-        <!-- Green Card: Total Stock Items -->
         <div style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; padding: 25px 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
             <h3 style="margin: 0; font-size: 38px;"><?= esc($total_items) ?></h3>
             <p style="margin: 5px 0 0 0; font-size: 16px; font-weight: bold;">Total Item Types</p>
         </div>
-        
-        <!-- Orange Card: Active Issues -->
         <div style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #e67e22, #d35400); color: white; padding: 25px 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
             <h3 style="margin: 0; font-size: 38px;"><?= esc($active_issues) ?></h3>
             <p style="margin: 5px 0 0 0; font-size: 16px; font-weight: bold;">Active Issues (Pending)</p>
         </div>
 
     </div>
-    <!-- Analytics Cards Khatam -->
     <?php if (session()->getFlashdata('success')) : ?>
         <div class="alert-success">
             <?= session()->getFlashdata('success') ?>

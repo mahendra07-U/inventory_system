@@ -67,5 +67,57 @@ class StudentController extends BaseController
         $session->destroy();
         return redirect()->to('login');
     }
+    public function myHistory()
+    {
+        $session = \Config\Services::session();
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to('login');
+        }
+        $student_id = $session->get('student_id');        
+        $db = \Config\Database::connect();
+        $builder = $db->table('allocations');
+        $builder->select('allocations.allocation_date, allocations.return_date, allocations.status, inventory_items.item_name');
+        $builder->join('inventory_items', 'inventory_items.id = allocations.item_id');
+        $builder->where('allocations.student_id', $student_id); 
+        $builder->orderBy('allocations.allocation_date', 'DESC');       
+        $query = $builder->get();
+        $data['history'] = $query->getResultArray();
+        return view('student/history', $data);
+    }
+    public function changePasswordForm()
+    {
+        $session = \Config\Services::session();
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to('login');
+        }
+        return view('student/change_password');
+    }
+    public function updatePassword()
+    {
+        $session = \Config\Services::session();
+        $studentModel = new StudentModel();
+        
+        $student_id = $session->get('student_id');
+        $student = $studentModel->find($student_id);
+        $old_password = $this->request->getPost('old_password');
+        $new_password = $this->request->getPost('new_password');
+        $confirm_password = $this->request->getPost('confirm_password');
+        if ($new_password !== $confirm_password) {
+            $session->setFlashdata('error', 'New Password and Confirm Password are not match !');
+            return redirect()->to('change-password');
+        }
+        if (password_verify($old_password, $student['student_password'])) {
+            $newData = [
+                'student_password' => password_hash($new_password, PASSWORD_DEFAULT)
+            ];
+            $studentModel->update($student_id, $newData);
+            
+            $session->setFlashdata('success', 'your Password has successfully updated !');
+            return redirect()->to('items'); 
+        } else {
+            $session->setFlashdata('error', 'Your Old Password is wrong !');
+            return redirect()->to('change-password');
+        }
+    }
 }
 ?>

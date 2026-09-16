@@ -6,7 +6,7 @@ class DashboardController extends BaseController
     {
         $session = \Config\Services::session();       
         if (!$session->get('isLoggedIn')) {
-            $session->setFlashdata('error', 'Dashboard dekhne ke liye pehle Login karein.');
+            $session->setFlashdata('error', 'First Login Then you can view dashboard.');
             return redirect()->to('login');
         }
         $student_id = $session->get('student_id');
@@ -63,9 +63,9 @@ class DashboardController extends BaseController
             $allocationModel->insert($allocData);
             $newQuantity = $item['available_quantity'] - 1;
             $itemModel->update($item_id, ['available_quantity' => $newQuantity]);
-            $session->setFlashdata('success', $item['item_name'] . ' successfully issue ho gaya!');
+            $session->setFlashdata('success', $item['item_name'] . ' successfully issued!');
         } else {
-            $session->setFlashdata('error', 'Sorry, yeh item out of stock hai!');
+            $session->setFlashdata('error', 'Sorry, This item is out of stock!');
         }
         return redirect()->to('items');
     }
@@ -80,7 +80,7 @@ class DashboardController extends BaseController
             $newQuantity = $item['available_quantity'] + 1;
             $itemModel->update($item_id, ['available_quantity' => $newQuantity]);
         }
-        $session->setFlashdata('success', 'Item successfully return ho gaya! Stock update kar diya gaya hai.');
+        $session->setFlashdata('success', 'Item successfully returned! Stock had updated.');
         return redirect()->to('dashboard');
     }
 }
